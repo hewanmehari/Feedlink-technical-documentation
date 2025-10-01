@@ -3,6 +3,7 @@ import {
   ServerStackIcon,
   CloudIcon,
 } from '@heroicons/react/24/outline';
+import Image from 'next/image';
 
 export default function SystemArchitecturePage() {
   return (
@@ -33,7 +34,7 @@ export default function SystemArchitecturePage() {
         </h2>
         
         <div className="rounded-lg border border-gray-200 overflow-hidden bg-gray-50">
-          <img
+          <Image
             src="Image/system.png" 
             alt="Feedlink System Architecture Diagram"
             className="w-full h-auto object-contain"
@@ -60,7 +61,7 @@ export default function SystemArchitecturePage() {
         </p>
 
         <div className="rounded-lg border border-gray-200 overflow-hidden bg-gray-50">
-          <img
+          <Image
             src="Image/feedlink ERD.png" 
             alt="Feedlink Entity Relationship Diagram"
             className="w-full h-auto object-contain"
