@@ -1,4 +1,3 @@
-// app/database-schema/page.tsx
 
 
 export default function DatabaseSchemaPage() {
