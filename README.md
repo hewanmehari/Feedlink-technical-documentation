@@ -5,7 +5,7 @@ Feedlink is a tech-driven sustainability platform designed to reduce food waste 
 This repository contains the technical documentation for Feedlink’s full-stack architecture, including frontend, backend, database design, API specifications, deployment strategy, and security practices.
 
 # Table of Contents
-##[Overview](https://feedlink-technical-documentation-sq.vercel.app/#overview)
+## [Overview](https://feedlink-technical-documentation-sq.vercel.app/#overview)
 [Features](https://feedlink-technical-documentation-sq.vercel.app/#features)
 [Tech Stack](https://feedlink-technical-documentation-sq.vercel.app/#tech-stack)
 [System Architecture](https://feedlink-technical-documentation-sq.vercel.app/#system)
