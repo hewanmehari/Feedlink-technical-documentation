@@ -6,14 +6,14 @@ This repository contains the technical documentation for Feedlink’s full-stack
 
 # Table of Contents
 ## [Overview](https://feedlink-technical-documentation-sq.vercel.app/#overview)
-[Features](https://feedlink-technical-documentation-sq.vercel.app/#features)
-[Tech Stack](https://feedlink-technical-documentation-sq.vercel.app/#tech-stack)
-[System Architecture](https://feedlink-technical-documentation-sq.vercel.app/#system)
-[Database and Schema](https://feedlink-technical-documentation-sq.vercel.app/#database)
-[API Documentation](https://feedlink-technical-documentation-sq.vercel.app/#api)
-[Deployment](https://feedlink-technical-documentation-sq.vercel.app/#deployment)
-[Security](https://feedlink-technical-documentation-sq.vercel.app/#security)
-[Testing and Monitoring](https://feedlink-technical-documentation-sq.vercel.app/#testing)
+## [Features](https://feedlink-technical-documentation-sq.vercel.app/#features)
+## [Tech Stack](https://feedlink-technical-documentation-sq.vercel.app/#tech-stack)
+## [System Architecture](https://feedlink-technical-documentation-sq.vercel.app/#system)
+## [Database and Schema](https://feedlink-technical-documentation-sq.vercel.app/#database)
+## [API Documentation](https://feedlink-technical-documentation-sq.vercel.app/#api)
+## [Deployment](https://feedlink-technical-documentation-sq.vercel.app/#deployment)
+## [Security](https://feedlink-technical-documentation-sq.vercel.app/#security)
+## [Testing and Monitoring](https://feedlink-technical-documentation-sq.vercel.app/#testing)
 
 # Hosted Link 
 https://feedlink-technical-documentation-sq.vercel.app/
