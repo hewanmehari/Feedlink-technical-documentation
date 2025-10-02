@@ -22,7 +22,7 @@ export default function OverviewPage() {
           Overview
         </h2>
         <p className="text-gray-900 leading-relaxed">
-          Feedlink is a comprehensive platform that connects waste producers (supermarkets) with buyers and recyclers for non-edible waste. Producers can list surplus food, buyers can purchase at discounted prices, and recyclers can claim waste for recycling — creating a circular economy that reduces landfill burden and promotes sustainability.
+          Feedlink is a comprehensive platform that connects waste producers (supermarkets) with buyers and recyclers for non-edible waste. Producers can list surplus food, buyers can purchase at discounted prices, and recyclers can claim waste for recycling creating a circular economy that reduces landfill burden and promotes sustainability.
         </p>
       </section>
 
@@ -107,7 +107,7 @@ export default function OverviewPage() {
             Integrated Services
           </h3>
           <p className="text-gray-900 leading-relaxed">
-            Integrated M-Pesa and Location Services: Facilitate secure payments and optimize transaction efficiency.
+            Integrated M-Pesa and Location Services to facilitate secure payments and optimize transaction efficiency.
           </p>
         </div>
       </section>

@@ -8,7 +8,7 @@ import Image from 'next/image';
 export default function SystemArchitecturePage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 md:py-12">
-      <h1 
+      <h1
         className="text-3xl font-bold mb-2"
         style={{ color: 'var(--primary-color)' }}
       >
@@ -26,17 +26,19 @@ export default function SystemArchitecturePage() {
           boxShadow: '0 4px 12px -4px color-mix(in oklch, var(--primary-color) 6%, transparent)',
         }}
       >
-        <h2 
+        <h2
           className="text-xl font-semibold mb-4"
           style={{ color: 'var(--primary-color)' }}
         >
           Architecture Diagram
         </h2>
-        
+
         <div className="rounded-lg border border-gray-200 overflow-hidden bg-gray-50">
           <Image
-            src="Image/system.png" 
+            src="/Image/system.png"
             alt="Feedlink System Architecture Diagram"
+            width={1200}
+            height={800}
             className="w-full h-auto object-contain"
           />
         </div>
@@ -49,21 +51,23 @@ export default function SystemArchitecturePage() {
           boxShadow: '0 4px 12px -4px color-mix(in oklch, var(--primary-color) 6%, transparent)',
         }}
       >
-        <h2 
+        <h2
           className="text-xl font-semibold mb-4"
           style={{ color: 'var(--primary-color)' }}
         >
           Entity Relationship Diagram (ERD)
         </h2>
-        
+
         <p className="text-gray-600 mb-4">
           The entity relationship diagram outlines the database relationships.
         </p>
 
         <div className="rounded-lg border border-gray-200 overflow-hidden bg-gray-50">
           <Image
-            src="Image/feedlink ERD.png" 
+            src="/Image/feedlink ERD.png"
             alt="Feedlink Entity Relationship Diagram"
+            width={1200}
+            height={800}
             className="w-full h-auto object-contain"
           />
         </div>
@@ -125,7 +129,7 @@ function LayerCard({
       >
         <span style={{ color: iconColor }}>{icon}</span>
       </div>
-      <h3 
+      <h3
         className="text-lg font-bold mb-2"
         style={{ color: 'var(--primary-color)' }}
       >
