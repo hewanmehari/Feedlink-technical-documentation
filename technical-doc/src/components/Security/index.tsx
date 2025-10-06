@@ -30,10 +30,10 @@ export default function SecurityPage() {
                This URL currently resolves to an <strong>escort/adult service page</strong> — meaning:
             </p>
             <ul className="list-disc pl-5 text-sm mt-1">
-              <li>Payment confirmations are **not received** by your backend</li>
-              <li>Orders remain stuck in "pending" state</li>
-              <li>Transaction data may be exposed to third parties</li>
-            </ul>
+  <li>Payment confirmations are <strong>not received</strong> by your backend</li>
+  <li>Orders remain stuck in “pending” state</li>
+  <li>Transaction data may be exposed to third parties</li>
+</ul>
             <p className="text-sm text-gray-900 mt-2">
               <strong>Prevention:</strong> Always use a real, HTTPS-enabled, publicly accessible callback URL.
             </p>

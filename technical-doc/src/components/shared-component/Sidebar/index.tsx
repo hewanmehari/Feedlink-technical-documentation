@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { FiHome, FiSettings, FiBook, FiServer, FiDatabase, FiCode, FiUpload, FiShield, FiBarChart2 } from "react-icons/fi";
+import { FiHome, FiSettings,  FiServer, FiDatabase, FiCode, FiUpload, FiShield, FiBarChart2 } from "react-icons/fi";
 
 const sections = [
   { id: "overview", label: "Overview", icon: FiHome },

@@ -25,7 +25,7 @@ export default function TestingMonitoringPage() {
             <ul className="list-disc pl-5 text-sm mt-1">
               <li>Use <code>ngrok</code> to expose local server</li>
               <li>Send a simulated M-Pesa callback payload</li>
-              <li>Verify order status updates to "paid"</li>
+              <li>Verify order status updates to “paid”</li>
             </ul>
           </div>
         </div>
@@ -123,10 +123,10 @@ export default function TestingMonitoringPage() {
           In production, monitor:
         </p>
         <ul className="list-disc pl-5 text-sm text-gray-600 mt-2 space-y-1">
-          <li>Orders stuck in "pending" 10 minutes</li>
+          <li>Orders stuck in “pending” 10 minutes</li>
           <li>HTTP 5xx errors on <code>/api/payments/callback/</code></li>
           <li>Failed M-Pesa STK push attempts</li>
-          <li>Unusual spikes in "cancelled" orders</li>
+          <li>Unusual spikes in “cancelled” orders</li>
         </ul>
         <p className="mt-3 text-xs text-gray-600 italic">
            Use Heroku logs + custom alerts to catch callback failures early.
