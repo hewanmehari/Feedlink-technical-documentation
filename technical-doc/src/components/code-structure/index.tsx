@@ -221,15 +221,7 @@ export default function CodeStructurePage() {
         </p>
       </div>
 
-      <footer 
-        className="mt-12 pt-6 text-center text-sm"
-        style={{ 
-          borderTop: '1px solid color-mix(in oklch, var(--secondary-color) 20%, transparent)',
-          color: 'color-mix(in oklch, var(--secondary-color) 70%, gray)'
-        }}
-      >
-        © 2025 Feedlink. Reducing food waste, one connection at a time.
-      </footer>
+     
     </div>
   );
 }

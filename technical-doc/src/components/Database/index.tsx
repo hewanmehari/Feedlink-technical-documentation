@@ -161,5 +161,6 @@ function SchemaSection({
         </p>
       )}
     </div>
+    
   );
 }

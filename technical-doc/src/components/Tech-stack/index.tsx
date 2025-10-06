@@ -19,30 +19,9 @@ export default function GettingStartedPage() {
           className="text-2xl font-semibold mb-4"
           style={{ color: 'var(--primary-color)' }}
         >
-          Technology Stack
+          Project Setup
         </h2>
-        <div className="flex flex-wrap gap-2">
-          {[
-            'Next.js',
-            'Tailwind CSS',
-            'Kotlin',
-            'Django',
-            'PostgreSQL',
-            'Heroku',
-            'Vercel',
-          ].map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 text-sm font-medium rounded-full"
-              style={{
-                backgroundColor: 'color-mix(in oklch, var(--secondary-color) 15%, white)',
-                color: 'var(--primary-color)',
-              }}
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+       
       </section>
 
       <CodeSection

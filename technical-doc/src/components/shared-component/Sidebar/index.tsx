@@ -7,14 +7,17 @@ import { FiHome, FiSettings,  FiServer, FiDatabase, FiCode, FiUpload, FiShield, 
 const sections = [
   { id: "overview", label: "Overview", icon: FiHome },
   { id: "features", label: "Features", icon: FiSettings },
-  { id: "tech-stack", label: "Technology Stack", icon: FiServer },
-  { id: "system", label: "System Architecture", icon: FiServer },
+  { id: "system", label: "ERD", icon: FiServer },
   { id: "database", label: "Database Schema", icon: FiDatabase },
   { id: "api", label: "API Documentation", icon: FiCode },
+  
+  { id: "code standards", label: "Code Standards", icon: FiCode },
+  { id: "project-setup", label: "Project-setup", icon: FiServer },
+
+  { id: "code-structure", label: "Code-structure", icon: FiBarChart2 },
   { id: "deployment", label: "Deployment", icon: FiUpload },
   { id: "security", label: "Security", icon: FiShield },
   { id: "testing", label: "Testing & Monitoring", icon: FiBarChart2 },
-  { id: "code-structure", label: "Code-structure", icon: FiBarChart2 },
 
 ];
 

@@ -7,8 +7,25 @@ import {
   CpuChipIcon,
   ArrowPathIcon,
 } from '@heroicons/react/24/outline';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+
+const LUCID_URL = "https://lucid.app/lucidchart/cf004e99-fa97-400f-863f-23d447920fc1/edit?beaconFlowId=8F00A922E26B2862&invitationId=inv_36b4a6ce-ed96-4e9c-9f6a-7c2979282725&page=0_0#";
 
 export default function OverviewPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Optional: Close modal on ESC key
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setIsModalOpen(false);
+    };
+    if (isModalOpen) {
+      window.addEventListener('keydown', handleEsc);
+      return () => window.removeEventListener('keydown', handleEsc);
+    }
+  }, [isModalOpen]);
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 md:py-12">
       <h1
@@ -46,6 +63,52 @@ export default function OverviewPage() {
         <p className="text-gray-900 leading-relaxed">
           All participants receive real-time impact metrics: meals saved, CO₂ reduced, and waste diverted from landfills.
         </p>
+      </section>
+
+      {/* System Architecture Section */}
+      <section className="mb-16">
+        <h2
+          className="text-2xl font-semibold mb-5"
+          style={{ color: 'var(--primary-color)' }}
+        >
+          System Architecture
+        </h2>
+        <p className="text-gray-600 mb-6">
+          Feedlink follows a modular, API-driven architecture to ensure scalability, security, and ease of maintenance. All components communicate via REST APIs.
+        </p>
+
+        <div
+          className="bg-white rounded-xl p-5 border overflow-hidden"
+          style={{
+            borderColor: 'color-mix(in oklch, var(--secondary-color) 25%, transparent)',
+            boxShadow: '0 4px 12px -4px color-mix(in oklch, var(--primary-color) 6%, transparent)',
+          }}
+        >
+          <h3
+            className="text-xl font-semibold mb-4"
+            style={{ color: 'var(--primary-color)' }}
+          >
+            Architecture Diagram
+          </h3>
+
+          {/* Clickable image to open modal */}
+          <div
+            className="rounded-lg border border-gray-200 overflow-hidden bg-gray-50 cursor-pointer hover:opacity-90 transition-opacity"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <Image
+              src="/Image/system.png"
+              alt="Feedlink System Architecture Diagram"
+              width={1200}
+              height={800}
+              className="w-full h-auto object-contain"
+            />
+          </div>
+
+          <p className="mt-3 text-sm text-gray-600 italic">
+            <strong>Data Flow:</strong> Mobile/Web → Next.js API Routes → Django Backend → PostgreSQL + M-Pesa/LocationIQ → Callbacks → Notifications
+          </p>
+        </div>
       </section>
 
       {/* Core Components */}
@@ -199,6 +262,51 @@ export default function OverviewPage() {
           Full setup instructions, API contracts, and testing guides are available in the project README and <code>/docs</code>.
         </p>
       </section>
+
+      {/* Modal Popup */}
+      {isModalOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4"
+          onClick={() => setIsModalOpen(false)}
+        >
+          <div
+            className="relative bg-white rounded-xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              className="absolute top-3 right-3 bg-gray-200 hover:bg-gray-300 rounded-full p-1 z-10"
+              onClick={() => setIsModalOpen(false)}
+              aria-label="Close diagram"
+            >
+              <span className="text-gray-700 font-bold text-xl">×</span>
+            </button>
+
+            {/* Diagram image */}
+            <div className="p-4">
+              <Image
+                src="/Image/system.png"
+                alt="Feedlink System Architecture Diagram"
+                width={1200}
+                height={800}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+
+            {/* Edit in Lucidchart link */}
+            <div className="px-4 pb-4 text-center">
+              <a
+                href={LUCID_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:underline text-sm font-medium"
+              >
+              View this diagram in Lucidchart
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

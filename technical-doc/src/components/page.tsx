@@ -3,7 +3,7 @@
 
 import Overview from '@/components/Overview';
 import Features from '@/components/Features';
-import TechStack from '@/components/Tech-stack';
+import ProjectSetup from '@/components/Tech-stack';
 import System from '@/components/System';
 import Database from '@/components/Database';
 import Api from '@/components/Api';
@@ -12,6 +12,8 @@ import Security from '@/components/Security';
 import Testing from '@/components/Testing';
 import Sidebar from '@/components/shared-component/Sidebar';
 import CodeStructurePage from './code-structure';
+import CodeStandardsPage from './Code Standards';
+
 
 
 export default function HomePage() {
@@ -20,7 +22,6 @@ export default function HomePage() {
   return (
     <div className="flex min-h-screen">
       <Sidebar />
-
       <main className="ml-72 p-8 w-full bg-gray-50 overflow-y-auto">
         <section id="overview" className="mb-16 scroll-mt-24">
           <Overview />
@@ -30,9 +31,7 @@ export default function HomePage() {
           <Features />
         </section>
         
-        <section id="tech-stack" className="mb-16 scroll-mt-24">
-          <TechStack />
-        </section>
+     
         
         <section id="system" className="mb-16 scroll-mt-24">
           <System />
@@ -45,7 +44,18 @@ export default function HomePage() {
         <section id="api" className="mb-16 scroll-mt-24">
           <Api />
         </section>
+       
+        <section id="code standards" className="mb-16 scroll-mt-24">
+          <CodeStandardsPage/>
+        </section>
+        <section id="project-setup" className="mb-16 scroll-mt-24">
+          <ProjectSetup />
+        </section>
         
+        <section id="code-structure" className="mb-16 scroll-mt-24">
+          <CodeStructurePage />
+        </section>
+
         <section id="deployment" className="mb-16 scroll-mt-24">
           <Deployment />
         </section>
@@ -56,11 +66,8 @@ export default function HomePage() {
         
         <section id="testing" className="mb-16 scroll-mt-24">
           <Testing />
-          
         </section>
-        <section id="code-structure" className="mb-16 scroll-mt-24">
-          <CodeStructurePage />
-        </section>
+       
       </main>
     </div>
   );

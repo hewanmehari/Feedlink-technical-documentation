@@ -140,6 +140,7 @@ export default function TestingMonitoringPage() {
           color: 'color-mix(in oklch, var(--secondary-color) 70%, gray)'
         }}
       >
+        © 2025 Feedlink. Reducing food waste, one connection at a time.
       </footer>
     </div>
   );
