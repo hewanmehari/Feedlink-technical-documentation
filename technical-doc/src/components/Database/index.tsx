@@ -1,5 +1,3 @@
-
-
 export default function DatabaseSchemaPage() {
   return (
     <div className="max-w-5xl mx-auto px-4 py-8 md:py-12">
@@ -11,55 +9,86 @@ export default function DatabaseSchemaPage() {
       </h1>
 
       <p className="text-gray-600 mt-2 mb-10">
-        PostgreSQL relational database with Django ORM models.
+        PostgreSQL relational database using Django ORM. All IDs are UUIDs. Timestamps use <code>DateTime</code>.
       </p>
 
       <SchemaSection
         title="User Model"
         lang="python"
-        schema={`user_id (UUID, Primary Key)
-first_name (String)
-last_name (String)
-password (Hashed String)
-latitude (Float)
-longitude (Float)
-role (Enum: admin, buyer, recycler, supermarket)`}
+        schema={`id = UUIDField(primary_key=True, default=uuid.uuid4)
+email = EmailField(unique=True)
+first_name = CharField(max_length=100)
+last_name = CharField(max_length=100)
+password = CharField()  # hashed via bcrypt
+latitude = FloatField(null=True, blank=True)
+longitude = FloatField(null=True, blank=True)
+role = CharField(choices=[
+    ('admin', 'Admin'),
+    ('supermarket', 'Supermarket'),
+    ('buyer', 'Buyer'),
+    ('recycler', 'Recycler')
+])
+created_at = DateTimeField(auto_now_add=True)
+updated_at = DateTimeField(auto_now=True)`}
+        note="Primary key: id (UUID). Supermarkets, buyers, and recyclers are all stored here with role-based access."
       />
 
       <SchemaSection
-        title="Products Model"
+        title="Product Model"
         lang="python"
-        schema={`product_id (UUID, Primary Key)
-supermarket_id (Foreign Key → User)
-product_name (String)
-category (String)
-unit (String)
-selling_price (Decimal)
-image_url (String)
-stock_quantity (Integer)`}
+        schema={`id = UUIDField(primary_key=True, default=uuid.uuid4)
+name = CharField(max_length=200)
+category = CharField(max_length=50)      # e.g., 'vegetables', 'dairy'
+unit = CharField(max_length=20)          # e.g., 'kg', 'piece'
+price = DecimalField(max_digits=10, decimal_places=2)
+stock_quantity = PositiveIntegerField()
+is_edible = BooleanField(default=True)   # False → recyclers only
+image_url = URLField(blank=True)
+created_at = DateTimeField(auto_now_add=True)
+
+# Relations
+supermarket = ForeignKey('User', on_delete=CASCADE, limit_choices_to={'role': 'supermarket'})`}
+        note=" Edible products appear in buyer app; non-edible (is_edible=False) appear only for recyclers."
       />
 
+      <SchemaSection
+        title="Order Model"
+        lang="python"
+        schema={`id = UUIDField(primary_key=True, default=uuid.uuid4)
+quantity = PositiveIntegerField()
+total_amount = DecimalField(max_digits=10, decimal_places=2)
+status = CharField(choices=[
+    ('pending', 'Pending'),
+    ('paid', 'Paid'),
+    ('fulfilled', 'Fulfilled'),
+    ('cancelled', 'Cancelled')
+], default='pending')
+created_at = DateTimeField(auto_now_add=True)
+updated_at = DateTimeField(auto_now=True)
+
+# Relations
+customer = ForeignKey('User', on_delete=PROTECT, limit_choices_to={'role__in': ['buyer', 'recycler']})
+product = ForeignKey('Product', on_delete=PROTECT)`}
+        note=" Orders link a customer (buyer/recycler) to a product. Stock is reduced only when status = 'paid'."
+      />
 
       <SchemaSection
         title="Payment Model"
         lang="python"
-        schema={` payment_id (UUID, Primary Key)
-order_id
-customer_id (String)
-amount (String)
-payment_method (String)
-payment_status (Decimal)
-transaction_id (String)
-created_at (Integer)`}
-      />
+        schema={`id = UUIDField(primary_key=True, default=uuid.uuid4)
+amount = DecimalField(max_digits=10, decimal_places=2)
+status = CharField(choices=[
+    ('initiated', 'Initiated'),
+    ('success', 'Success'),
+    ('failed', 'Failed')
+], default='initiated')
+mpesa_transaction_id = CharField(max_length=50, unique=True, null=True, blank=True)
+callback_data = JSONField(null=True, blank=True)  # raw M-Pesa response
+created_at = DateTimeField(auto_now_add=True)
 
-        <SchemaSection
-        title="Orders Model"
-        lang="python"
-        schema={` customer_id  (Forein Key)
- order_status
- total_amount
-`}
+# Relations
+order = OneToOneField('Order', on_delete=CASCADE)`}
+        note=" Payment is 1:1 with Order. M-Pesa callbacks update status and store transaction_id. Never store raw card data."
       />
     </div>
   );
@@ -69,10 +98,12 @@ function SchemaSection({
   title,
   lang,
   schema,
+  note,
 }: {
   title: string;
   lang: string;
   schema: string;
+  note?: string;
 }) {
   return (
     <div
@@ -124,6 +155,11 @@ function SchemaSection({
           {schema}
         </pre>
       </div>
+      {note && (
+        <p className="mt-3 text-sm text-gray-700 italic bg-gray-50 p-3 rounded-lg">
+          {note}
+        </p>
+      )}
     </div>
   );
 }

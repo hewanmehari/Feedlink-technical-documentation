@@ -14,6 +14,8 @@ const sections = [
   { id: "deployment", label: "Deployment", icon: FiUpload },
   { id: "security", label: "Security", icon: FiShield },
   { id: "testing", label: "Testing & Monitoring", icon: FiBarChart2 },
+  { id: "code-structure", label: "Code-structure", icon: FiBarChart2 },
+
 ];
 
 export default function Sidebar() {

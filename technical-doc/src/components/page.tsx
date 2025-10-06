@@ -11,6 +11,7 @@ import Deployment from '@/components/Deployment';
 import Security from '@/components/Security';
 import Testing from '@/components/Testing';
 import Sidebar from '@/components/shared-component/Sidebar';
+import CodeStructurePage from './code-structure';
 
 
 export default function HomePage() {
@@ -55,6 +56,10 @@ export default function HomePage() {
         
         <section id="testing" className="mb-16 scroll-mt-24">
           <Testing />
+          
+        </section>
+        <section id="code-structure" className="mb-16 scroll-mt-24">
+          <CodeStructurePage />
         </section>
       </main>
     </div>
