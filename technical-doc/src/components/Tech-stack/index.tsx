@@ -128,18 +128,7 @@ cd feedlink-mobile
         </p>
       </section>
 
-      <div className="mt-8 text-center">
-        <p className="text-gray-700">
-          Stuck? See full docs in the repository <code>README.md</code> or visit{' '}
-          <a 
-            href="/docs" 
-            className="underline"
-            style={{ color: 'var(--primary-color)' }}
-          >
-            /docs
-          </a>.
-        </p>
-      </div>
+      
     </div>
   );
 }

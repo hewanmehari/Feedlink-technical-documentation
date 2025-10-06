@@ -152,9 +152,9 @@ export default function SystemArchitecturePage() {
         <p className="mt-2">
           <strong>Fix it:</strong> Use <code>ngrok http 8000</code> during dev, or deploy backend to Heroku/Vercel with real HTTPS.
         </p>
-        <p className="mt-2 text-sm text-gray-600">
+        {/* <p className="mt-2 text-sm text-gray-600">
           See <a href="/getting-started" className="underline" style={{ color: 'var(--primary-color)' }}>Getting Started</a> for full setup guide.
-        </p>
+        </p> */}
       </div>
     </div>
   );
