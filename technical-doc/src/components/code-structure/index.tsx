@@ -1,6 +1,5 @@
 // src/app/code-structure/page.tsx
 import { FolderIcon } from '@heroicons/react/24/outline';
-import Image from 'next/image'; // 👈 Import Image
 
 export default function CodeStructurePage() {
   return (
@@ -32,17 +31,30 @@ export default function CodeStructurePage() {
             <FolderIcon className="h-5 w-5" style={{ color: 'var(--primary-color)' }} />
             Backend (Django)
           </h2>
-          <div className="overflow-hidden rounded-lg border border-gray-200">
-            <Image
-              src="/Image/backend.png"
-              alt="Backend folder structure screenshot"
-              width={1200}
-              height={800}
-              className="w-full h-auto object-contain"
-            />
-          </div>
+          <pre className="bg-[#0F2C2C] text-[#D3D7DF] font-mono text-xs leading-relaxed overflow-x-auto p-4 rounded-lg whitespace-pre">
+{`feedlink-back-end/
+├── .github/
+├── api/
+│   ├── __init__.py
+│   ├── views.py
+│   └── serializers.py
+├── feedlink/
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── manage.py
+├── requirements.txt
+├── migrations/
+├── models.py
+├── tests/
+│   ├── __init__.py
+│   └── test_models.py
+├── static/
+└── media/`}
+          </pre>
           <p className="mt-3 text-xs text-gray-600 italic">
-             Key folders: <code>api/</code> for endpoints, <code>models.py</code> for DB schema.
+            💡 Key folders: <code>api/</code> for endpoints, <code>models.py</code> for DB schema.
           </p>
         </div>
 
@@ -61,17 +73,29 @@ export default function CodeStructurePage() {
             <FolderIcon className="h-5 w-5" style={{ color: 'var(--primary-color)' }} />
             Frontend (Next.js)
           </h2>
-          <div className="overflow-hidden rounded-lg border border-gray-200">
-            <Image
-              src="/Image/frontend.png"
-              alt="Frontend folder structure screenshot"
-              width={1200}
-              height={800}
-              className="w-full h-auto object-contain"
-            />
-          </div>
+          <pre className="bg-[#0F2C2C] text-[#D3D7DF] font-mono text-xs leading-relaxed overflow-x-auto p-4 rounded-lg whitespace-pre">
+{`feedlink-frontend/
+├── .next/
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── api/
+│   │   │   ├── auth/
+│   │   │   ├── listings/
+│   │   │   └── payments/
+│   │   └── components/
+│   ├── lib/
+│   │   └── prisma.ts
+│   └── styles/
+├── package.json
+├── next.config.mjs
+├── tsconfig.json
+└── .env.local`}
+          </pre>
           <p className="mt-3 text-xs text-gray-600 italic">
-             Key folders: <code>src/app/api/</code> for backend calls, <code>components/</code> for reusable UI.
+            💡 Key folders: <code>src/app/api/</code> for backend calls, <code>components/</code> for reusable UI.
           </p>
         </div>
 
@@ -90,17 +114,28 @@ export default function CodeStructurePage() {
             <FolderIcon className="h-5 w-5" style={{ color: 'var(--primary-color)' }} />
             Mobile (Kotlin/Android)
           </h2>
-          <div className="overflow-hidden rounded-lg border border-gray-200">
-            <Image
-              src="/Image/mobile.png"
-              alt="Mobile folder structure screenshot"
-              width={1200}
-              height={800}
-              className="w-full h-auto object-contain"
-            />
-          </div>
+          <pre className="bg-[#0F2C2C] text-[#D3D7DF] font-mono text-xs leading-relaxed overflow-x-auto p-4 rounded-lg whitespace-pre">
+{`feedlink-mobile/
+├── app/
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   └── com.feedlink/
+│   │   │   │       ├── MainActivity.kt
+│   │   │   │       ├── api/
+│   │   │   │       ├── model/
+│   │   │   │       └── ui/
+│   │   │   └── res/
+│   │   │       ├── layout/
+│   │   │       └── values/
+│   │   └── AndroidManifest.xml
+│   └── build.gradle
+├── gradle/
+├── build.gradle
+└── settings.gradle`}
+          </pre>
           <p className="mt-3 text-xs text-gray-600 italic">
-             Key folders: <code>api/</code> for Retrofit services, <code>ui/</code> for Jetpack Compose screens.
+            💡 Key folders: <code>api/</code> for Retrofit services, <code>ui/</code> for Jetpack Compose screens.
           </p>
         </div>
       </div>
@@ -108,14 +143,14 @@ export default function CodeStructurePage() {
       {/* Critical Note */}
       <div className="mt-10 p-5 rounded-xl bg-yellow-50 border border-yellow-200">
         <h3 className="font-bold text-lg mb-2 flex items-center gap-2" style={{ color: '#f59e0b' }}>
-           Important: Avoid Misconfigured Callbacks
+          ⚠️ Important: Avoid Misconfigured Callbacks
         </h3>
         <p className="text-sm text-gray-900">
           As shown in our testing, using placeholder URLs like{' '}
           <code className="bg-yellow-100 px-1 rounded">yourdomain.com</code> in <code>DARAJA_CALLBACK_URL</code> leads to callbacks being sent to unrelated sites.
         </p>
         <p className="mt-2 text-sm text-gray-900">
-           Always use a real HTTPS URL or <code>ngrok</code> during development.
+          ✅ Always use a real HTTPS URL or <code>ngrok</code> during development.
         </p>
       </div>
 
