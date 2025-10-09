@@ -66,8 +66,7 @@ export default function CodeStandardsPage() {
                 </ul>
               </li>
               <li><strong>Serializers/Views:</strong> Place each in its own file unless they are closely related.</li>
-              <li><strong>Testing:</strong> Use Django's built-in test runner (<code className="bg-gray-100 px-1 rounded">python manage.py test</code>) and maintain high coverage.</li>
-            </ul>
+              <li><strong>Testing:</strong> Use Django&#39;s built-in test runner (<code className="bg-gray-100 px-1 rounded">python manage.py test</code>) and maintain high coverage.</li>            </ul>
           </div>
   
           {/* General Standards Card */}
