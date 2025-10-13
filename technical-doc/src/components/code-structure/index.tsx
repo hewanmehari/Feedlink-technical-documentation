@@ -148,7 +148,8 @@ export default function CodeStructurePage() {
         </div>
 
         {/* Mobile */}
-        <div
+                {/* Mobile */}
+                <div
           className="bg-white rounded-xl p-6 shadow-sm border"
           style={{
             borderColor: 'color-mix(in oklch, var(--secondary-color) 25%, transparent)',
@@ -183,6 +184,24 @@ export default function CodeStructurePage() {
 │       │   ├── AuthRepository.kt
 │       │   ├── CartRepository.kt
 │       │   └── ListingsRepository.kt
+│       ├── ui.theme/
+│       │   └── Theme.kt
+│       ├── utils/
+│       │   └── Extensions.kt
+│       ├── viewmodel/
+│       │   ├── CartViewModel.kt
+│       │   ├── ForgotPasswordViewModel.kt
+│       │   ├── ListingsViewModel.kt
+│       │   ├── ListingViewModel.kt
+│       │   ├── NotificationViewModel.kt
+│       │   ├── OrderViewModel.kt
+│       │   ├── PaymentViewModel.kt
+│       │   ├── ProductDetailViewModel.kt
+│       │   ├── ProfileViewModel.kt
+│       │   ├── SignInViewModel.kt
+│       │   ├── SignUpViewModel.kt
+│       │   ├── TimerViewModel.kt
+│       │   └── WasteClaimViewModel.kt
 │       └── screens/
 │           ├── authChoice.kt
 │           ├── CartScreen.kt
@@ -198,11 +217,18 @@ export default function CodeStructurePage() {
 │           ├── splashScreen.kt
 │           ├── teasera.kt
 │           ├── teaserb.kt
-│           └── teaserc.kt
+│           ├── teaserc.kt
+│           ├── TimerScreen.kt
+│           ├── verification.kt
+│           ├── ViewProfileScreen.kt
+│           ├── WasteCollection.kt
+│           ├── WasteHistory.kt
+│           ├── WasteHomepage.kt
+│           └── WasteNotifications.kt
 └── Logcat`}
           </pre>
           <p className="mt-3 text-xs text-gray-600 italic">
-             Key folders: <code>api/</code> for Retrofit services, <code>screens/</code> for Jetpack Compose screens.
+             Key folders: <code>api/</code> for Retrofit services, <code>screens/</code> for Jetpack Compose screens, <code>viewmodel/</code> for state management.
           </p>
         </div>
       </div>
