@@ -59,6 +59,33 @@ export default function DeploymentPage() {
         </div>
       </section>
 
+      {/* Mobile Deployment */}
+      <section className="mt-8">
+        <h2 
+          className="text-2xl font-semibold mb-4"
+          style={{ color: 'var(--primary-color)' }}
+        >
+          Mobile Deployment
+        </h2>
+        <div
+          className="bg-white rounded-xl p-6 shadow-sm border"
+          style={{
+            borderColor: 'color-mix(in oklch, var(--secondary-color) 25%, transparent)',
+            boxShadow: '0 4px 12px -4px color-mix(in oklch, var(--primary-color) 6%, transparent)',
+          }}
+        >
+          <ul className="space-y-2 text-gray-700 list-disc pl-5">
+            <li><strong>Platform:</strong> Android (Kotlin + Jetpack Compose)</li>
+            <li><strong>Build Tool:</strong> Gradle (via Android Studio or CLI)</li>
+            <li><strong>Distribution:</strong> Internal testing via Firebase App Distribution; Production via Google Play Console</li>
+            <li><strong>App Setup:</strong> Follow Google’s official guide to <a href="https://support.google.com/googleplay/android-developer/answer/9859152?hl=en" target="_blank" rel="noopener noreferrer" className="underline">create and configure your app on Google Play</a></li>
+            <li><strong>Environment Configuration:</strong> Use build variants (<code>debug</code>/<code>release</code>) with separate API endpoints</li>
+            <li><strong>Secrets Management:</strong> Store API URLs/keys in <code>local.properties</code> or Gradle properties — never in source code</li>
+            <li><strong>CI Integration:</strong> GitHub Actions builds and signs AAB on tag pushes</li>
+          </ul>
+        </div>
+      </section>
+
       {/* CI/CD Pipeline */}
       <section className="mt-8">
         <h2 
@@ -87,24 +114,28 @@ export default function DeploymentPage() {
       <div className="mt-10 p-5 rounded-xl bg-red-50 border border-red-200">
         <h3 className="font-bold text-lg mb-2 flex items-center gap-2" style={{ color: '#dc2626' }}>
           <ExclamationCircleIcon className="h-5 w-5" />
-          Critical: M-Pesa Callback URL
+          Critical: M-Pesa Callback URL Misconfiguration
         </h3>
         <p className="text-gray-900">
           <strong>Never use placeholder URLs like <code className="bg-red-100 px-1 rounded">yourdomain.com</code>.</strong>
         </p>
         <p className="mt-2">
-          Our tests confirm that <code>https://yourdomain.com/api/daraja/callback/</code> currently resolves to an <strong>escort/adult service page</strong>. 
-          This breaks payments and risks data exposure.
+          As confirmed by live testing, <code>https://yourdomain.com/api/daraja/callback/</code> resolves to an <strong>adult/escort service page</strong> (see: <a href="https://yourdomain.com/api/daraja/callback/" target="_blank" rel="noopener noreferrer" className="underline text-red-700">evidence</a>). 
+          This breaks M-Pesa payments and may leak sensitive transaction data.
         </p>
         <p className="mt-2 font-medium">
-           <strong>Use your real deployed URL:</strong>
+          <strong>Use your real deployed URL:</strong>
         </p>
         <ul className="list-disc pl-5 mt-2 text-sm">
           <li><strong>Heroku:</strong> <code>https://your-feedlink-backend.herokuapp.com/api/payments/callback/</code></li>
           <li><strong>Local dev:</strong> Use <code>ngrok http 8000</code> → <code>https://xxxx.ngrok.io/api/payments/callback/</code></li>
         </ul>
-        <p className="mt-2 text-sm">
-          Also update this URL in the <a href="https://developer.safaricom.co.ke/" target="_blank" rel="noopener noreferrer" className="underline">Safaricom Daraja Portal</a>.
+        <p className="mt-3 text-sm">
+          Also register this exact URL in the{' '}
+          <a href="https://developer.safaricom.co.ke/" target="_blank" rel="noopener noreferrer" className="underline">
+            Safaricom Daraja Portal
+          </a>
+          {' '}under your M-Pesa API credentials.
         </p>
       </div>
 
@@ -164,7 +195,7 @@ DARAJA_BASE_URL=https://sandbox.safaricom.co.ke/`}
           </pre>
         </div>
         <p className="mt-3 text-sm text-gray-600 italic">
-           <strong>Never commit real secrets to Git.</strong> Add <code>.env</code> to <code>.gitignore</code>.
+           <strong>Never commit real secrets to Git.</strong> Add <code>.env</code> and <code>local.properties</code> to <code>.gitignore</code>.
         </p>
       </section>
     </div>
