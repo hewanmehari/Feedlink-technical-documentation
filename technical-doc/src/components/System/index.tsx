@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function SystemArchitecturePage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8 md:py-12">
+    <div className="max-w-5xl mx-auto px-4 py-8 md:py-12 mt-[-95px]">
       <h1
         className="text-3xl font-bold mb-2"
         style={{ color: 'var(--primary-color)' }}

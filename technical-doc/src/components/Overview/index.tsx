@@ -216,9 +216,9 @@ export default function OverviewPage() {
       </section>
 
       {/* Developer Onboarding Section */}
-      <section className="mb-16">
+      <section className="">
         <h2
-          className="text-2xl font-semibold mb-5"
+          className="text-2xl font-semibold mb-5 "
           style={{ color: 'var(--primary-color)' }}
         >
           For New Contributors
